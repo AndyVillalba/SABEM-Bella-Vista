@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="newClassDiagramTemplate">
+  <ClassDiagramComponents>
+    <Class name="Beneficiario" package="" visibility="public" xPosition="428.0" yPosition="12.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="fecNac" type="Date" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+        <Field name="fotografia" type="jpg" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Beneficio" package="" visibility="public" xPosition="383.0" yPosition="263.0">
+      <Fields>
+        <Field name="fecAlta" type="Date" visibility="private"/>
+        <Field name="fecVto" type="Date" visibility="private"/>
+        <Field name="Establecimiento" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Carnet" package="" visibility="public" xPosition="199.0" yPosition="476.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Renovacion" package="" visibility="public" xPosition="199.0" yPosition="215.0">
+      <Fields>
+        <Field name="apertura" type="Date" visibility="private"/>
+        <Field name="cierre" type="Date" visibility="private"/>
+        <Field name="realizado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="7.0" yPosition="31.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="legajo" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RegistroBoleto" package="" visibility="public" xPosition="225.0" yPosition="50.0">
+      <Fields>
+        <Field name="entrega" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Documento" package="" visibility="public" xPosition="19.0" yPosition="215.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="entregado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Documentacion" package="" visibility="public" xPosition="19.0" yPosition="416.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="EstadoCarnet" package="" visibility="public" xPosition="428.0" yPosition="462.0">
+      <Literals>
+        <Literal name="Impreso"/>
+        <Literal name="PendienteImpresion"/>
+      </Literals>
+    </Enum>
+    <Enum name="EstadoBeneficio" package="" visibility="public" xPosition="641.0" yPosition="153.0">
+      <Literals>
+        <Literal name="Inactivo"/>
+        <Literal name="Pendiente"/>
+        <Literal name="Activo"/>
+        <Literal name="Vencido"/>
+      </Literals>
+    </Enum>
+    <Enum name="NivelEstudio" package="" visibility="public" xPosition="641.0" yPosition="336.0">
+      <Literals>
+        <Literal name="Primario"/>
+        <Literal name="Secundario"/>
+        <Literal name="Terciario"/>
+        <Literal name="Universitario"/>
+        <Literal name="Deportivo"/>
+        <Literal name="Curso"/>
+        <Literal name="Otros"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="reliza" source="Beneficio" target="Renovacion" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Realiza" source="Empleado" target="Renovacion" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="realiza" source="Empleado" target="RegistroBoleto" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Realiza" source="Beneficio" target="RegistroBoleto" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Tiene" source="Carnet" target="EstadoCarnet" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Beneficio" target="EstadoBeneficio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Beneficiario" target="Beneficio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Beneficio" target="NivelEstudio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Beneficio" target="Documentacion" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Beneficio" target="Carnet" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="contiene" source="Documentacion" target="Documento" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
